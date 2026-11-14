@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patinhas Felizes | Adoção de Animais</title>
+  <meta name="description" content="Encontre seu novo melhor amigo! Plataforma dedicada à adoção responsável de cães e gatos resgatados.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Principal -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO / NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="brand-logo">
+        <span class="logo-icon">🐾</span>
+        <span class="logo-text">Patinhas<strong>Felizes</strong></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#catalogo" class="nav-link">Adotar</a>
+        <a href="#como-funciona" class="nav-link">Como Funciona</a>
+        <a href="#sobre" class="nav-link">Sobre Nós</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="btn-favoritos" class="btn-icon" aria-label="Ver favoritos">
+          ❤️ <span class="fav-count" id="fav-count">0</span>
+        </button>
+        <a href="#catalogo" class="btn btn-primary btn-sm">Quero Adotar</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="badge badge-accent">❤️ Adoção Responsável</span>
+          <h1 class="hero-title">Dê uma nova chance e ganhe um amigo para a vida toda.</h1>
+          <p class="hero-subtitle">
+            Centenas de cãezinhos e gatinhos resgatados estão à espera de um lar cheio de amor e carinho. Conheça nossos amigos e faça a diferença!
+          </p>
+          <div class="hero-cta-group">
+            <a href="#catalogo" class="btn btn-primary btn-lg">Ver Animais Disponíveis</a>
+            <a href="#como-funciona" class="btn btn-outline btn-lg">Como Funciona</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">350+</span>
+              <span class="stat-label">Pets Adotados</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Vacinados & Castrados</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">40+</span>
+              <span class="stat-label">Aguardando Lar</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image-wrapper">
+          <img 
+            src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80" 
+            alt="Cachorro feliz brincando na grama" 
+            class="hero-img"
+          >
+          <div class="floating-badge">
+            <span class="badge-icon">✨</span>
+            <div>
+              <strong>Adoção 100% Gratuita</strong>
+              <small>Com acompanhamento</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DO CATÁLOGO DE PETS COM FILTROS -->
+    <section class="catalog-section" id="catalogo">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="badge badge-primary">Nossos Companheiros</span>
+          <h2 class="section-title">Encontre seu novo amigo</h2>
+          <p class="section-subtitle">Use os filtros para encontrar o companheiro que melhor combina com a sua rotina e família.</p>
+        </div>
+
+        <!-- BARRA DE FILTROS -->
+        <div class="filter-card">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Buscar por nome ou raça..." 
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="filter-controls">
+            <!-- Filtro de Espécie -->
+            <div class="filter-group">
+              <label for="filter-species">Espécie:</label>
+              <select id="filter-species" class="select-control">
+                <option value="todos">Todos os animais</option>
+                <option value="cachorro">🐶 Cães</option>
+                <option value="gato">🐱 Gatos</option>
+              </select>
+            </div>
+
+            <!-- Filtro de Porte -->
+            <div class="filter-group">
+              <label for="filter-size">Porte:</label>
+              <select id="filter-size" class="select-control">
+                <option value="todos">Todos os portes</option>
+                <option value="Pequeno">Pequeno</option>
+                <option value="Médio">Médio</option>
+                <option value="Grande">Grande</option>
+              </select>
+            </div>
+
+            <!-- Filtro de Idade -->
+            <div class="filter-group">
+              <label for="filter-age">Idade:</label>
+              <select id="filter-age" class="select-control">
+                <option value="todos">Todas as idades</option>
+                <option value="filhote">Filhote (até 1 ano)</option>
+                <option value="adulto">Adulto (1 a 7 anos)</option>
+                <option value="idoso">Idoso (8+ anos)</option>
+              </select>
+            </div>
+
+            <!-- Botão Limpar Filtros -->
+            <button id="btn-reset-filters" class="btn btn-secondary btn-sm" title="Limpar todos os filtros">
+              Limpar
+            </button>
+          </div>
+        </div>
+
+        <!-- CONTADOR DE RESULTADOS -->
+        <div class="results-header">
+          <p id="results-count" class="results-count">Carregando animais...</p>
+          <div class="tab-filters">
+            <button class="tab-btn active" data-tab="todos">Todos</button>
+            <button class="tab-btn" data-tab="favoritos">Meus Favoritos ❤️</button>
+          </div>
+        </div>
+
+        <!-- GRID DE CARDS DOS ANIMAIS -->
+        <div id="pets-grid" class="pets-grid">
+          <!-- Os cards são inseridos dinamicamente pelo JavaScript -->
+        </div>
+
+        <!-- MENSAGEM QUANDO NENHUM PET FOR ENCONTRADO -->
+        <div id="no-results" class="no-results hidden">
+          <div class="no-results-icon">🐾</div>
+          <h3>Nenhum amiguinho encontrado com esses filtros</h3>
+          <p>Tente ajustar os critérios de busca para ver outros animais disponíveis.</p>
+          <button id="btn-clear-empty" class="btn btn-primary btn-sm">Ver todos os animais</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO COMO FUNCIONA -->
+    <section class="how-it-works-section" id="como-funciona">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="badge badge-accent">Passo a Passo</span>
+          <h2 class="section-title">Como funciona a adoção?</h2>
+          <p class="section-subtitle">O processo é simples, seguro e transparente para garantir a felicidade do pet e da família.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-icon">🔎</div>
+            <h3>Escolha seu pet</h3>
+            <p>Navegue pelo nosso catálogo, conheça a história, porte e temperamento de cada animalzinho.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-icon">📝</div>
+            <h3>Envie seu formulário</h3>
+            <p>Preencha a manifestação de interesse direto no site com seus dados para contato da nossa equipe.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-icon">🏡</div>
+            <h3>Entrevista e Adoção</h3>
+            <p>Agendamos uma visita ou conversa para finalizar o termo e você levar seu novo amigo para casa!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO SOBRE -->
+    <section class="about-section" id="sobre">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img 
+            src="https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?auto=format&fit=crop&w=800&q=80" 
+            alt="Cão e gato juntos" 
+            class="about-img"
+          >
+        </div>
+        <div class="about-content">
+          <span class="badge badge-primary">Sobre a Iniciativa</span>
+          <h2 class="section-title">Amor incondicional merece um lar digno</h2>
+          <p>
+            O <strong>Patinhas Felizes</strong> é um projeto dedicado a dar visibilidade a cães e gatos resgatados de situações de vulnerabilidade ou abandono. 
+          </p>
+          <p>
+            Todos os animais cadastrados passam por avaliação veterinária, recebem vacinação em dia, vermifugação e são castrados antes da liberação para um novo lar.
+          </p>
+          <div class="about-features">
+            <div class="feature-bullet">✅ Adoções 100% gratuitas e responsáveis</div>
+            <div class="feature-bullet">✅ Suporte pré e pós-adoção com orientações</div>
+            <div class="feature-bullet">✅ Parcerias com protetores e ONGs locais</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL DE DETALHES E ADOÇÃO -->
+  <div id="pet-modal" class="modal-overlay hidden" aria-hidden="true" role="dialog">
+    <div class="modal-container">
+      <button id="modal-close" class="modal-close-btn" aria-label="Fechar janela">&times;</button>
+      
+      <div class="modal-body" id="modal-content">
+        <!-- Conteúdo injetado via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICAÇÃO TOAST -->
+  <div id="toast" class="toast hidden" role="alert">
+    <span id="toast-message"></span>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <span class="logo-icon">🐾</span>
+          <span class="logo-text">Patinhas<strong>Felizes</strong></span>
+        </div>
+        <p class="footer-tagline">Conectando corações e patinhas desde 2026.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#catalogo">Catálogo de Pets</a></li>
+          <li><a href="#como-funciona">Processo de Adoção</a></li>
+          <li><a href="#sobre">Sobre o Projeto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-info">
+        <h4>Projeto Acadêmico</h4>
+        <p>Disciplina: <strong>Web Coding</strong></p>
+        <p>Desenvolvido com carinho em HTML, CSS & JavaScript.</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container text-center">
+        <p>&copy; 2026 Patinhas Felizes. Todos os direitos reservados. Feito para salvar vidas. 🐶🐱</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT PRINCIPAL -->
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# node_modules (para quando utilizar Node.js no futuro)
+node_modules/
+package-lock.json
+
+# Arquivos de sistema e ambiente
+.DS_Store
+Thumbs.db
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
